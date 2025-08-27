@@ -1,0 +1,32 @@
+{
+  "name": "cadastro-de-alunos-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "seed": "node prisma/seed.js",
+    "start": "node src/server.js",
+    "migrate": "prisma migrate dev",
+    "studio": "prisma studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonqxd/Cadastro-de-Alunos-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andersonqxd/Cadastro-de-Alunos-/issues"
+  },
+  "homepage": "https://github.com/andersonqxd/Cadastro-de-Alunos-#readme",
+  "dependencies": {
+    "@prisma/client": "^6.15.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prisma": "^6.15.0"
+  }
+}

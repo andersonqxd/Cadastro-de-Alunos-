@@ -3,11 +3,13 @@ const express = require("express");
 const app = express();
 
 app.use( express.json() );
+app.use( express.urlencoded({ extended: true }));
+
 app.use("/alunos", require("./routes/alunoRouters"));
 app.use("/professores", require("./routes/professorRouters"));
 
 
-app.use( express.urlencoded({ extended: true }));
+
 
 app.get("/", (_,res) => {
     res.json({ status: "ok", service: "cadastro-alunos"});

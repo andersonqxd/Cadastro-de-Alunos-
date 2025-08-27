@@ -26,7 +26,8 @@ module.exports = {
 
             const novoprofessor = await prisma.professor.create({ data: { nome, email, idade: Number(idade) } })
             res.status(201).json(novoprofessor);
-        } catch (error) {
+        } catch (e) {
+            console.error("o erro ", e)
             res.status(500).json({ error: "Falha ao criar professor" });
         }
     },
@@ -58,7 +59,8 @@ module.exports = {
             });
             res.json(atualizado);
 
-        } catch (error) {
+        } catch (e) {
+            console.error("o erro ", e)
             res.status(500).json({ error: "Falha ao atualizar professor" });
         }
     },

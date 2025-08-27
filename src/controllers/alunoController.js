@@ -18,12 +18,12 @@ module.exports = {
                 return res.status(400).json({ error: "Campos obrigatórios: nome, email, idade" })
             }
 
-            const emailExist = await prisma.aluno.findUnique({ where: { email } })
+            const emailExist = await prisma.Aluno.findUnique({ where: { email } })
             if (emailExist) {
                 return res.status(409).json({ error: "E-mail já cadastrado" });
             };
-
-            const novoAluno = await prisma.aluno.create({ 
+            
+            const novoAluno = await prisma.Aluno.create({ 
                 data: { 
                     nome, 
                     email, 
@@ -32,6 +32,7 @@ module.exports = {
             })
             res.status(201).json(novoAluno);
         } catch (e) {
+            console.error("o erro ", e)
             res.status(500).json({ error: "Falha ao criar aluno" });
         }
     },
@@ -63,7 +64,8 @@ module.exports = {
             });
             res.json(atualizado);
 
-        } catch (error) {
+        } catch (e) {
+            console.error("o erro ", e)
             res.status(500).json({ error: "Falha ao atualizar aluno" });
         }
     },
